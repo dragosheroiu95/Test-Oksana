@@ -2,14 +2,13 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { UsersListComponent } from './components/users-list/users-list.component';
 import { UsersResolver } from './resolvers';
-import { PaginationResolver } from './resolvers/pagination.resolver';
 
 const routes: Routes = [
   {
     path: '',
+    runGuardsAndResolvers: 'paramsOrQueryParamsChange',
     resolve: {
-      users: UsersResolver,
-      paginationInfo: PaginationResolver
+      usersData: UsersResolver,
     },
     component: UsersListComponent
   }
@@ -17,6 +16,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: []
 })
 export class UsersListRoutingModule { }

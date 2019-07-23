@@ -9,7 +9,7 @@ export class UsersResolver implements Resolve<any> {
   }
 
   resolve(route: ActivatedRouteSnapshot): any {
-    const page: number = route.queryParams['page'] || 1;
+    const page: number = route.queryParams['page'];
     return this.apiService.fetchUsers(page);
   }
 

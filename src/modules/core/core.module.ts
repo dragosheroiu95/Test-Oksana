@@ -1,6 +1,6 @@
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
-import { ApiService, PaginationApiService } from './services';
+import { ApiService } from './services';
 
 @NgModule({
   imports: [
@@ -9,13 +9,11 @@ import { ApiService, PaginationApiService } from './services';
 })
 export class CoreModule {
   static forRoot(): ModuleWithProviders {
-    console.log('CoreModule created');
     return {
       ngModule: CoreModule,
       providers: [
-        ApiService,
-        PaginationApiService
+        ApiService
       ]
-    }
+    };
   }
 }

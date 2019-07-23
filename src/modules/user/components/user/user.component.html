@@ -1,3 +1,5 @@
-<button (click)="back()">Back</button>
+<mat-spinner *ngIf="isLoading; else userTemplate"></mat-spinner>
 
-<app-user-data [user]="user"></app-user-data>
+<ng-template #userTemplate>
+    <app-user-data (backClick)="back()" [user]="user"></app-user-data>
+</ng-template>
